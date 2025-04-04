@@ -7,4 +7,3 @@ Using PyCharm is recommended.
 ### Dependencies:
 pip install cryptography==39.0.1 <br>
 sudo apt install python3-tk <br>
-pip install psutil 
