@@ -5,6 +5,6 @@ Part of a simple uni project, signs and verifies PDF file
 Using PyCharm is recommended. 
 
 ### Dependencies:
-pip install cryptography==39.0.1 
-sudo apt install python3-tk 
-pip install psutil
+pip install cryptography==39.0.1 <br>
+sudo apt install python3-tk <br>
+pip install psutil 
