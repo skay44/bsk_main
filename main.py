@@ -1,3 +1,6 @@
+## @file rsa_pdf_signer.py
+#  @brief Aplikacja GUI do podpisywania i weryfikacji podpisów PDF przy użyciu kluczy RSA zapisanych na pendrive.
+
 import os
 import sys
 import tkinter as tk
@@ -14,7 +17,9 @@ from cryptography.hazmat.primitives import serialization
 import hashlib
 from PyPDF2 import PdfReader, PdfWriter
 
-# Znajdowanie pendrive
+
+## @brief Znajduje podłączone pendrive'y.
+#  @return Lista ścieżek do wykrytych pendrive'ów.
 def find_pendrive():
     usb_drives = []
     partitions = psutil.disk_partitions()
@@ -23,6 +28,10 @@ def find_pendrive():
             usb_drives.append(p.device)
     return usb_drives
 
+
+## @brief Odczytuje klucz publiczny z pendrive'a.
+#  @param pendrive_path Ścieżka do pendrive'a.
+#  @return Załadowany klucz publiczny.
 def read_public_key(pendrive_path):
     file_path = os.path.join(pendrive_path, "public.pem")
     with open(file_path, "rb") as f:
@@ -30,7 +39,10 @@ def read_public_key(pendrive_path):
     public_key = serialization.load_pem_public_key(data)
     return public_key
 
-# Odczytywanie zaszyfrowanego klucza RSA
+
+## @brief Odczytuje zaszyfrowany klucz prywatny RSA z pendrive'a.
+#  @param pendrive_path Ścieżka do pendrive'a.
+#  @return Salt, IV i zaszyfrowany klucz prywatny.
 def read_encrypted_rsa_key(pendrive_path):
     file_path = os.path.join(pendrive_path, "private_encrypted.bin")
     with open(file_path, "rb") as f:
@@ -42,7 +54,13 @@ def read_encrypted_rsa_key(pendrive_path):
     return salt, iv, encrypted_key
 
 
-# Odszyfrowywanie klucza
+## @brief Odszyfrowuje klucz prywatny RSA z użyciem PINu.
+#  @param encrypted_rsa_key Zaszyfrowany klucz.
+#  @param pin PIN wprowadzony przez użytkownika.
+#  @param salt Salt użyty do KDF.
+#  @param iv Wektor inicjalizacyjny do AES.
+#  @return Odszyfrowany klucz prywatny RSA.
+#  @throws ValueError jeśli PIN jest nieprawidłowy lub plik RSA uszkodzony.
 def decrypt_rsa_key(encrypted_rsa_key, pin, salt, iv):
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -63,34 +81,40 @@ def decrypt_rsa_key(encrypted_rsa_key, pin, salt, iv):
 
     return priv_key
 
-
+## @brief Podpisuje plik PDF kluczem prywatnym.
+#  @param pdf_path Ścieżka do pliku PDF.
+#  @param priv_key Klucz prywatny RSA.
+#  @param output_path Ścieżka do zapisania podpisanego pliku PDF.
 def sign_pfd(pdf_path, priv_key, output_path):
     # Read PDF bytes
     with open(pdf_path, "rb") as f:
         pdf_bytes = f.read()
 
-    # Hash PDF content
     digest = hashlib.sha256(pdf_bytes).digest()
 
-    # Sign hash with RSA private key (PKCS1v15)
     signature = priv_key.sign(
         digest,
         padding=padding.PKCS1v15(),
         algorithm=hashes.SHA256()
     )
 
-    # Save signature alongside PDF (simple approach)
     with open(output_path, "wb") as f_out:
         f_out.write(pdf_bytes)
         f_out.write(b"\n%%SIGNATURE%%\n")
         f_out.write(signature)
 
-
-
+## @brief Generuje ścieżkę do podpisanego pliku PDF.
+#  @param input_path Ścieżka do wejściowego pliku PDF.
+#  @return Nowa ścieżka do podpisanego pliku PDF.
 def signed_output_path(input_path):
     base, ext = os.path.splitext(input_path)
     return base + "_signed" + ext
 
+## @brief Weryfikuje podpis pliku PDF.
+#  @param pdf_path Ścieżka do pliku PDF.
+#  @param public_key Klucz publiczny do weryfikacji podpisu.
+#  @return True jeśli podpis poprawny, False w przeciwnym razie.
+#  @throws ValueError jeśli PDF nie zawiera podpisu.
 def validate_pdf(pdf_path, public_key):
     with open(pdf_path, "rb") as f:
         content = f.read()
@@ -101,7 +125,6 @@ def validate_pdf(pdf_path, public_key):
     pdf_bytes, signature = content.split(b"\n%%SIGNATURE%%\n")
     digest = hashlib.sha256(pdf_bytes).digest()
 
-    # Verify signature
     try:
         public_key.verify(
             signature,
@@ -113,7 +136,10 @@ def validate_pdf(pdf_path, public_key):
     except Exception:
         return False
 
+## @class RSAApp
+#  @brief Klasa GUI aplikacji.
 class RSAApp(tk.Tk):
+    ## @brief Konstruktor GUI aplikacji.
     def __init__(self):
         super().__init__()
         self.mode = tk.StringVar(value="")
@@ -125,28 +151,32 @@ class RSAApp(tk.Tk):
         self.create_widgets()
         self.selected_pdf = None
 
+    ## @brief Tworzy elementy GUI.
     def create_widgets(self):
         self.label = tk.Label(self, text="Wybierz pendrive i wprowadź PIN aby odszyfrować klucz")
         self.label2 = tk.Label(self, text="Wybierz tryb działania programu:")
 
-        self.pendrive_button = tk.Button(self, text="Wykryj pendrive", command=self.execute_app)
+
         self.pin_label = tk.Label(self, text="Wprowadź pin:")
         self.pin_entry = tk.Entry(self, show="*")
         self.pdf_button = tk.Button(self, text="Podaj sciezke do pdf", command=self.select_pdf)
         self.pdf_path_label = tk.Label(self, text="Brak wybranego pdfa...", wraplength=400)
-        self.validate_or_sign1 = tk.Radiobutton(self, text="Sprawdź poprawność", value="Sprawdź poprawność", variable=self.mode)
+        self.validate_or_sign1 = tk.Radiobutton(self, text="Sprawdź poprawność", value="Sprawdź poprawność",
+                                                variable=self.mode)
         self.validate_or_sign2 = tk.Radiobutton(self, text="Podpisz", value="Podpisz", variable=self.mode)
+        self.pendrive_button = tk.Button(self, text="Zatwierdź i rozpocznij", command=self.execute_app)
 
         self.label.pack(pady=20)
-        self.pendrive_button.pack(pady=10)
-        self.pin_label.pack(pady=5)
-        self.pin_entry.pack(pady=5)
         self.pdf_button.pack(pady=10)
         self.pdf_path_label.pack(pady=5)
+        self.pin_label.pack(pady=5)
+        self.pin_entry.pack(pady=5)
         self.label2.pack(pady=20)
         self.validate_or_sign1.pack(pady=5)
         self.validate_or_sign2.pack(pady=5)
+        self.pendrive_button.pack(pady=10)
 
+    ## @brief Umożliwia wybór pliku PDF przez użytkownika.
     def select_pdf(self):
         file_path = filedialog.askopenfilename(
             title="Wybierz plik PDF",
@@ -158,6 +188,7 @@ class RSAApp(tk.Tk):
         else:
             messagebox.showwarning("Nie wybrano pliku", "Nie wybrano żadnego pliku PDF.")
 
+    ## @brief Główna logika aplikacji: wykrywa pendrive, wczytuje klucze i wykonuje podpis lub weryfikację.
     def execute_app(self):
         self.pendrive_path = find_pendrive()
         if self.pendrive_path:
@@ -172,18 +203,17 @@ class RSAApp(tk.Tk):
                 messagebox.showerror("Błąd", "Niepoprawny klucz prywatny lub niepoprawny pin")
                 return
 
-
-            if(self.mode.get() == "Validate"):
+            if (self.mode.get() == "Validate"):
                 try:
                     result = validate_pdf(self.selected_pdf, public_key)
                 except ValueError as e:
                     messagebox.showerror("Błąd", "PDF nie jest podpisany")
                     return
-                if(result):
-                    messagebox.showinfo("Sukces!","PDF podpisany poprawnie!")
+                if (result):
+                    messagebox.showinfo("Sukces!", "PDF podpisany poprawnie!")
                 else:
-                    messagebox.showinfo("Błąd!","PDF podpisany niepoprawnie lub zmodyfikowany!")
-            if(self.mode.get() == "Sign"):
+                    messagebox.showinfo("Błąd!", "PDF podpisany niepoprawnie lub zmodyfikowany!")
+            if (self.mode.get() == "Sign"):
                 sign_pfd(self.selected_pdf, priv_key, signed_output_path(self.selected_pdf))
 
         else:
