@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PDF tester: Dokumentacja klasy main.RSAApp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PDF tester<span id="projectnumber">&#160;1.1</span>
+   </div>
+   <div id="projectbrief">Aplikacja GUI do podpisywania i weryfikacji podpisów PDF przy użyciu kluczy RSA zapisanych na pendrive.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.14.0 -->
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',false,false,'search.php','Szukaj',false);
+});
+</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="namespacemain.html">main</a></li><li class="navelem"><a href="classmain_1_1_r_s_a_app.html">RSAApp</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-attribs">Atrybuty publiczne</a> &#124;
+<a href="classmain_1_1_r_s_a_app-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja klasy main.RSAApp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa GUI aplikacji.  
+ <a href="#details">Więcej...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a9ccdd4bd19878351e6505aec66da0a0c" id="r_a9ccdd4bd19878351e6505aec66da0a0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ccdd4bd19878351e6505aec66da0a0c">__init__</a> (self)</td></tr>
+<tr class="memdesc:a9ccdd4bd19878351e6505aec66da0a0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor GUI aplikacji.  <br /></td></tr>
+<tr class="memitem:aef86730c25fec928f42435530c6d827b" id="r_aef86730c25fec928f42435530c6d827b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef86730c25fec928f42435530c6d827b">create_widgets</a> (self)</td></tr>
+<tr class="memdesc:aef86730c25fec928f42435530c6d827b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy elementy GUI.  <br /></td></tr>
+<tr class="memitem:ae0c751f5dc0adb7b190c6589bcdc5010" id="r_ae0c751f5dc0adb7b190c6589bcdc5010"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0c751f5dc0adb7b190c6589bcdc5010">select_pdf</a> (self)</td></tr>
+<tr class="memdesc:ae0c751f5dc0adb7b190c6589bcdc5010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Umożliwia wybór pliku PDF przez użytkownika.  <br /></td></tr>
+<tr class="memitem:ac7c972b3a627532b06936b9a21ad2e65" id="r_ac7c972b3a627532b06936b9a21ad2e65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7c972b3a627532b06936b9a21ad2e65">execute_app</a> (self)</td></tr>
+<tr class="memdesc:ac7c972b3a627532b06936b9a21ad2e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Główna logika aplikacji: wykrywa pendrive, wczytuje klucze i wykonuje podpis lub weryfikację.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atrybuty publiczne</h2></td></tr>
+<tr class="memitem:a352183a01bbea0a202981f6686c816c6" id="r_a352183a01bbea0a202981f6686c816c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a352183a01bbea0a202981f6686c816c6">mode</a> = tk.StringVar(value=&quot;&quot;)</td></tr>
+<tr class="memitem:ac3e23b37028554bc4b52a396d8723894" id="r_ac3e23b37028554bc4b52a396d8723894"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3e23b37028554bc4b52a396d8723894">pendrive_path</a> = None</td></tr>
+<tr class="memitem:aa8cc7c7a1ec838f814029385d708e8aa" id="r_aa8cc7c7a1ec838f814029385d708e8aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8cc7c7a1ec838f814029385d708e8aa">selected_pdf</a> = None</td></tr>
+<tr class="memitem:ad643f18dc6f57010c9b0f2b3da6e0f30" id="r_ad643f18dc6f57010c9b0f2b3da6e0f30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad643f18dc6f57010c9b0f2b3da6e0f30">label</a> = tk.Label(self, text=&quot;Wybierz pendrive i wprowadź PIN aby odszyfrować klucz&quot;)</td></tr>
+<tr class="memitem:a3a153a74013f008b1dd73591a8a0cadd" id="r_a3a153a74013f008b1dd73591a8a0cadd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a153a74013f008b1dd73591a8a0cadd">label2</a> = tk.Label(self, text=&quot;Wybierz tryb działania programu:&quot;)</td></tr>
+<tr class="memitem:a26ecf9bd14abe6fc4fb5563f5c8b6245" id="r_a26ecf9bd14abe6fc4fb5563f5c8b6245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26ecf9bd14abe6fc4fb5563f5c8b6245">pin_label</a> = tk.Label(self, text=&quot;Wprowadź pin:&quot;)</td></tr>
+<tr class="memitem:adc0bb6b02c86c204ec1ed8877f21ce93" id="r_adc0bb6b02c86c204ec1ed8877f21ce93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc0bb6b02c86c204ec1ed8877f21ce93">pin_entry</a> = tk.Entry(self, show=&quot;*&quot;)</td></tr>
+<tr class="memitem:ab6da98f5b8cf1079688072368365362e" id="r_ab6da98f5b8cf1079688072368365362e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6da98f5b8cf1079688072368365362e">pdf_button</a> = tk.Button(self, text=&quot;Podaj sciezke do pdf&quot;, command=self.select_pdf)</td></tr>
+<tr class="memitem:a9179666ff6454f2572010b7a93f03a9b" id="r_a9179666ff6454f2572010b7a93f03a9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9179666ff6454f2572010b7a93f03a9b">pdf_path_label</a> = tk.Label(self, text=&quot;Brak wybranego pdfa...&quot;, wraplength=400)</td></tr>
+<tr class="memitem:a3b762ef5423cc3a7c4e9509bc7dd2a52" id="r_a3b762ef5423cc3a7c4e9509bc7dd2a52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b762ef5423cc3a7c4e9509bc7dd2a52">validate_or_sign1</a> = tk.Radiobutton(self, text=&quot;Sprawdź poprawność&quot;, value=&quot;Sprawdź poprawność&quot;,variable=self.mode)</td></tr>
+<tr class="memitem:aa9df209e962b641f7511d6e32d4d0e29" id="r_aa9df209e962b641f7511d6e32d4d0e29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9df209e962b641f7511d6e32d4d0e29">validate_or_sign2</a> = tk.Radiobutton(self, text=&quot;Podpisz&quot;, value=&quot;Podpisz&quot;, variable=self.mode)</td></tr>
+<tr class="memitem:a19014fb198cda55a7a56b1c2187114f7" id="r_a19014fb198cda55a7a56b1c2187114f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19014fb198cda55a7a56b1c2187114f7">pendrive_button</a> = tk.Button(self, text=&quot;Zatwierdź i rozpocznij&quot;, command=self.execute_app)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa GUI aplikacji. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00141">141</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a9ccdd4bd19878351e6505aec66da0a0c" name="a9ccdd4bd19878351e6505aec66da0a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ccdd4bd19878351e6505aec66da0a0c">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor GUI aplikacji. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00143">143</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="aef86730c25fec928f42435530c6d827b" name="aef86730c25fec928f42435530c6d827b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef86730c25fec928f42435530c6d827b">&#9670;&#160;</a></span>create_widgets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.create_widgets </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tworzy elementy GUI. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00155">155</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="ac7c972b3a627532b06936b9a21ad2e65" name="ac7c972b3a627532b06936b9a21ad2e65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c972b3a627532b06936b9a21ad2e65">&#9670;&#160;</a></span>execute_app()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.execute_app </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Główna logika aplikacji: wykrywa pendrive, wczytuje klucze i wykonuje podpis lub weryfikację. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00191">191</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="ae0c751f5dc0adb7b190c6589bcdc5010" name="ae0c751f5dc0adb7b190c6589bcdc5010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0c751f5dc0adb7b190c6589bcdc5010">&#9670;&#160;</a></span>select_pdf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.select_pdf </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Umożliwia wybór pliku PDF przez użytkownika. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00179">179</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="ad643f18dc6f57010c9b0f2b3da6e0f30" name="ad643f18dc6f57010c9b0f2b3da6e0f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad643f18dc6f57010c9b0f2b3da6e0f30">&#9670;&#160;</a></span>label</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.label = tk.Label(self, text=&quot;Wybierz pendrive i wprowadź PIN aby odszyfrować klucz&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00156">156</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="a3a153a74013f008b1dd73591a8a0cadd" name="a3a153a74013f008b1dd73591a8a0cadd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a153a74013f008b1dd73591a8a0cadd">&#9670;&#160;</a></span>label2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.label2 = tk.Label(self, text=&quot;Wybierz tryb działania programu:&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00157">157</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="a352183a01bbea0a202981f6686c816c6" name="a352183a01bbea0a202981f6686c816c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a352183a01bbea0a202981f6686c816c6">&#9670;&#160;</a></span>mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.mode = tk.StringVar(value=&quot;&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00145">145</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="ab6da98f5b8cf1079688072368365362e" name="ab6da98f5b8cf1079688072368365362e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6da98f5b8cf1079688072368365362e">&#9670;&#160;</a></span>pdf_button</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.pdf_button = tk.Button(self, text=&quot;Podaj sciezke do pdf&quot;, command=self.select_pdf)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00162">162</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="a9179666ff6454f2572010b7a93f03a9b" name="a9179666ff6454f2572010b7a93f03a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9179666ff6454f2572010b7a93f03a9b">&#9670;&#160;</a></span>pdf_path_label</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.pdf_path_label = tk.Label(self, text=&quot;Brak wybranego pdfa...&quot;, wraplength=400)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00163">163</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="a19014fb198cda55a7a56b1c2187114f7" name="a19014fb198cda55a7a56b1c2187114f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19014fb198cda55a7a56b1c2187114f7">&#9670;&#160;</a></span>pendrive_button</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.pendrive_button = tk.Button(self, text=&quot;Zatwierdź i rozpocznij&quot;, command=self.execute_app)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00166">166</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="ac3e23b37028554bc4b52a396d8723894" name="ac3e23b37028554bc4b52a396d8723894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e23b37028554bc4b52a396d8723894">&#9670;&#160;</a></span>pendrive_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.pendrive_path = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00150">150</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="adc0bb6b02c86c204ec1ed8877f21ce93" name="adc0bb6b02c86c204ec1ed8877f21ce93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc0bb6b02c86c204ec1ed8877f21ce93">&#9670;&#160;</a></span>pin_entry</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.pin_entry = tk.Entry(self, show=&quot;*&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00161">161</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="a26ecf9bd14abe6fc4fb5563f5c8b6245" name="a26ecf9bd14abe6fc4fb5563f5c8b6245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ecf9bd14abe6fc4fb5563f5c8b6245">&#9670;&#160;</a></span>pin_label</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.pin_label = tk.Label(self, text=&quot;Wprowadź pin:&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00160">160</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="aa8cc7c7a1ec838f814029385d708e8aa" name="aa8cc7c7a1ec838f814029385d708e8aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8cc7c7a1ec838f814029385d708e8aa">&#9670;&#160;</a></span>selected_pdf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.selected_pdf = None</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00152">152</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="a3b762ef5423cc3a7c4e9509bc7dd2a52" name="a3b762ef5423cc3a7c4e9509bc7dd2a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b762ef5423cc3a7c4e9509bc7dd2a52">&#9670;&#160;</a></span>validate_or_sign1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.validate_or_sign1 = tk.Radiobutton(self, text=&quot;Sprawdź poprawność&quot;, value=&quot;Sprawdź poprawność&quot;,variable=self.mode)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00164">164</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<a id="aa9df209e962b641f7511d6e32d4d0e29" name="aa9df209e962b641f7511d6e32d4d0e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9df209e962b641f7511d6e32d4d0e29">&#9670;&#160;</a></span>validate_or_sign2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.RSAApp.validate_or_sign2 = tk.Radiobutton(self, text=&quot;Podpisz&quot;, value=&quot;Podpisz&quot;, variable=self.mode)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="main_8py_source.html#l00165">165</a> pliku <a class="el" href="main_8py_source.html">main.py</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li><a class="el" href="main_8py_source.html">main.py</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano za pomocą&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

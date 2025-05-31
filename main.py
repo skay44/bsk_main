@@ -161,8 +161,7 @@ class RSAApp(tk.Tk):
         self.pin_entry = tk.Entry(self, show="*")
         self.pdf_button = tk.Button(self, text="Podaj sciezke do pdf", command=self.select_pdf)
         self.pdf_path_label = tk.Label(self, text="Brak wybranego pdfa...", wraplength=400)
-        self.validate_or_sign1 = tk.Radiobutton(self, text="Sprawdź poprawność", value="Sprawdź poprawność",
-                                                variable=self.mode)
+        self.validate_or_sign1 = tk.Radiobutton(self, text="Sprawdź poprawność", value="Sprawdź poprawność",variable=self.mode)
         self.validate_or_sign2 = tk.Radiobutton(self, text="Podpisz", value="Podpisz", variable=self.mode)
         self.pendrive_button = tk.Button(self, text="Zatwierdź i rozpocznij", command=self.execute_app)
 
