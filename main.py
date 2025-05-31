@@ -96,7 +96,7 @@ def validate_pdf(pdf_path, public_key):
         content = f.read()
 
     if b"\n%%SIGNATURE%%\n" not in content:
-        raise ValueError("PDF not signed")
+        raise ValueError("PDF nie jest podpisany")
 
     pdf_bytes, signature = content.split(b"\n%%SIGNATURE%%\n")
     digest = hashlib.sha256(pdf_bytes).digest()
@@ -133,9 +133,9 @@ class RSAApp(tk.Tk):
         self.pin_label = tk.Label(self, text="Wprowadź pin:")
         self.pin_entry = tk.Entry(self, show="*")
         self.pdf_button = tk.Button(self, text="Podaj sciezke do pdf", command=self.select_pdf)
-        self.pdf_path_label = tk.Label(self, text="No pdf selected...", wraplength=400)
-        self.validate_or_sign1 = tk.Radiobutton(self, text="Validate", value="Validate", variable=self.mode)
-        self.validate_or_sign2 = tk.Radiobutton(self, text="Sign", value="Sign", variable=self.mode)
+        self.pdf_path_label = tk.Label(self, text="Brak wybranego pdfa...", wraplength=400)
+        self.validate_or_sign1 = tk.Radiobutton(self, text="Sprawdź poprawność", value="Sprawdź poprawność", variable=self.mode)
+        self.validate_or_sign2 = tk.Radiobutton(self, text="Podpisz", value="Podpisz", variable=self.mode)
 
         self.label.pack(pady=20)
         self.pendrive_button.pack(pady=10)
@@ -169,7 +169,7 @@ class RSAApp(tk.Tk):
             try:
                 priv_key = decrypt_rsa_key(encrypted_key, pin, salt, iv)
             except ValueError as e:
-                messagebox.showerror("Error", "invalid pin or private key")
+                messagebox.showerror("Błąd", "Niepoprawny klucz prywatny lub niepoprawny pin")
                 return
 
 
@@ -177,12 +177,12 @@ class RSAApp(tk.Tk):
                 try:
                     result = validate_pdf(self.selected_pdf, public_key)
                 except ValueError as e:
-                    messagebox.showerror("Error", f"PDF is not signed")
+                    messagebox.showerror("Błąd", "PDF nie jest podpisany")
                     return
                 if(result):
-                    messagebox.showinfo("Success!","PDF file is valid!")
+                    messagebox.showinfo("Sukces!","PDF podpisany poprawnie!")
                 else:
-                    messagebox.showinfo("Fail!","PDF file is invalid/modified!")
+                    messagebox.showinfo("Błąd!","PDF podpisany niepoprawnie lub zmodyfikowany!")
             if(self.mode.get() == "Sign"):
                 sign_pfd(self.selected_pdf, priv_key, signed_output_path(self.selected_pdf))
 
